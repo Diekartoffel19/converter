@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Morph",
+  "mainBinaryName": "Morph",
+  "version": "0.1.0",
+  "identifier": "com.morph.converter",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Morph",
+        "width": 1200,
+        "height": 780,
+        "minWidth": 940,
+        "minHeight": 620,
+        "center": true,
+        "decorations": false,
+        "shadow": true,
+        "backgroundColor": "#0b0b10"
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "msi"],
+    "publisher": "Morph",
+    "category": "Utility",
+    "shortDescription": "Convert images, video, audio and PDFs",
+    "longDescription": "Morph converts images, video and audio between formats with FFmpeg, and merges, splits and edits PDFs.",
+    "externalBin": ["binaries/ffmpeg"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "compression": "lzma"
+      }
+    }
+  }
+}
